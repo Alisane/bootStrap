@@ -1,0 +1,21 @@
+a{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+@font-face {
+    font-family: 'wjs';
+    src: url('../lib/bootstrap/fonts/glyphicons-halflings-regular.eot');
+    src: url('../lib/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../lib/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('../lib/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../lib/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.wjs_icon{/*基类*/
+    font-family: wjs;
+}
+/*图标类*/
+.wjs_icon_phone::before{
+    content: "\e021";
+}

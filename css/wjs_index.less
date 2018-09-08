@@ -1,0 +1,410 @@
+@baseColor:#e92322;
+/*less文件的使用：见test.less
+1.变量：@变量名：值
+2.混入：可以将一个定义好的样式引入到另一个样式中，类似于函数调用
+3.嵌套：实现选择器的继承，减少代码量，使代码结构更清晰
+*/
+/*头部样式
+1.:nth-of-type(n)选择器匹配同类型中的前三个同级兄弟元素
+2.display: block;将<a>填满<div>用子元素填充父元素
+3.left: 50%;trasform: translateX(-50%);使任意元素居中对齐
+*/
+.wjs_header{
+  height: 50px;
+  line-height:50px;
+  border-bottom: 0px solid #cccccc;
+  .row {
+    height: 100%;
+    text-align: center;
+    /*:nth-of-type(n)选择器匹配同类型中的前三个同级兄弟元素。*/
+    > div:nth-of-type(-n+3) {
+      border-right: 1px solid #ccc;
+      > .wjs_code {
+        position: relative;
+        display: block; /*将<a>填满<div>*/
+        > img {
+          display: none;
+          position: absolute;
+          top: 49px;
+          left: 50%;
+          trasform: translateX(-50%);
+          border: 1px solid #ccc;
+          border-top: none;
+          z-index: 200;
+        }
+        &:hover {
+          > img {
+            display: block;
+          }
+        }
+      }
+    }
+    >div:nth-last-of-type(1){
+      >.btn-danger{
+        background-color: #e92322;
+        border-color: #e92322;
+      }
+      >.btn{
+        padding: 3px 15px;
+      }
+      >.btn-link{
+        color:#333;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+/*导航样式
+1.使用了bootstrap中的导航条组件，在改变其中的样式时，一定要对症下药
+*/
+.wjs_nav{
+  clear: both;
+  .navbar-brand{
+    height: 80px;
+    line-height: 50px;
+    span:first-of-type{
+      font-size: 40px;
+      color: @baseColor;
+    }
+    span:last-of-type{
+      font-size:40px;
+      color: #333;
+    }
+  }
+  .navbar-toggle{
+    margin-top: 23px;
+  }
+  .navbar-nav{
+    >li{
+      >a{
+        line-height: 50px;
+        font-size:16px;
+      }
+      >a:hover,a:focus{
+        color:#777;
+        background:transparent;
+        border-bottom:3px solid @baseColor;
+      }
+    }
+    .active{
+      >a,a:hover,a:focus{
+        background:transparent;
+        border-bottom:3px solid @baseColor;
+      }
+    }
+  }
+    &.navbar{
+    margin-bottom: 0;
+  }
+}
+
+/*轮播图
+1.使用了bootstrap中的轮播图插件，该轮播图在移动端与pc端的图片展示方式不同，在准备图片时应该注意两种图片的大小，
+*/
+.wjs_banner{
+  .carousel-inner{
+    .mobileImage{
+      width: 100%;
+      display: block;
+      >img{
+        width: 100%;
+        display: block;
+      }
+    }
+      .pcImage{
+        width: 100%;
+        height: 410px;
+        display: block;
+        background-position: center center;
+        background-size: cover;
+      }
+  }
+}
+
+/*信息块样式
+1.hidden-xs media-middle ...不同屏幕下的隐藏与显示
+*/
+.wjs_info{
+     padding: 30px;
+  .media{
+  span:first-of-type{
+    font-size: 40px;
+  }
+}
+  .row{
+      margin: auto;
+    >div{
+      margin-top: 20px;
+      a:hover{
+          color:@baseColor
+      }
+      p{
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+/*预约块*/
+.wjs_reverse{
+  height: 60px;
+  line-height: 60px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  span:first-of-type{
+    font-size: 18px;
+  }
+  .reverse_now{
+    color: @baseColor;
+    border-bottom: 1px dashed @baseColor;
+  }
+  a:hover{
+    color: @baseColor;
+  }
+}
+
+/*产品块
+1.ul没有从头开始展示，是由于浮动元素造成的,改导航条的height需要改子元素，让其撑开父元素的height
+2.使用了bootstrap中的标签页插件
+3.：first-of-type 找到第一个
+*/
+.wjs_product {
+  clear: both;
+  background-color: #eee;
+  padding: 20px;
+  .tabs_parent {
+    width: 100%;
+    overflow: hidden;
+  }
+  .nav-tabs {
+    > li {
+      margin-bottom: 0px;
+      padding: 0 15px;
+      > a {
+        line-height: 50px;
+        border-radius: 0;
+        border: none;
+        background-color: transparent;
+      }
+      > a:hover {
+        border-bottom: 3px solid @baseColor;
+      }
+      &.active {
+        > a, a:hover, a:focus {
+          border: none;
+          border-radius: 0;
+          background-color: transparent;
+          border-bottom: 3px solid @baseColor;
+        }
+      }
+    }
+  }
+  .wjs_pBox {
+    position: relative;
+    height: 150px;
+    margin-top: 20px;
+    background-color: #fff;
+    .wjs_pLeft {
+      margin-right: 100px;
+      height: 150px;
+      padding-top: 10px;
+      font-size: 12px;
+      > p {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+      }
+      .row {
+        margin-right: -8px;
+        margin-left: -8px;
+        > div:nth-of-type(even) {
+          text-align: right;
+        }
+      }
+    }
+    .wjs_pRight {
+      width: 100px;
+      height: 150px;
+      position: absolute;
+      border-left: 1px dashed #eee;
+      right: 0;
+      top: 0;
+      padding-top: 30px;
+      text-align: center;
+      > .wjs_tip {
+        width: 100%;
+        position: absolute;
+        top: 20px;
+        //水平位置任意元素对齐
+        left: 50%;
+        transform: translateX(-50%);
+        span{
+            cursor: pointer;
+        }
+        span:first-of-type {
+          color: @baseColor;
+          border: 1px solid @baseColor;
+        }
+        span:last-of-type {
+          color: blue;
+          border: 1px solid blue;
+        }
+      }
+      > b {
+        color: @baseColor;
+        font-size: 40px;
+      }
+      > sub {
+        color: @baseColor;
+        bottom: 0;
+      }
+      &::before, &::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #eeeeee;
+        position: absolute;
+        left:-5px;
+      }
+      &::before {
+        top: -5px;
+        box-shadow: 0px -1px 1px #ddd inset;
+      }
+      &::after {
+        bottom: -5px;
+        box-shadow: 0px 1px 1px #ddd inset;
+      }
+    }
+    &.active{
+      background-color: @baseColor;
+      >.wjs_pRight{
+        >b,sub,p {
+          color: #fff;
+        }
+      }
+      .wjs_pLeft{
+        color: #fff;
+        position: relative;
+        &::before{
+          //1.content中写要设置的图标
+          //2.用伪元素做图标，1指定字体，2指定那个图标,一般需要定位
+          content: "\e915";
+          font-family: wjs;
+          position: absolute;
+          top:0px;
+          left:0px;
+        }
+      }
+    }
+  }
+}
+
+/*新闻块*/
+.wjs_news{
+   padding: 20px;
+  .wjs_nTitle{
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    &::before{
+      content: "";
+      width: 8px;height: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      position: absolute;
+      right: -8px;
+      bottom: -4px;
+  }
+}
+  .wjs_newsLine{
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    border-left: 1px dashed @baseColor;
+    left:45px;
+    top:0;
+  }
+  .nav-tabs{
+    border-bottom:none;
+    position: relative;
+
+    //伪元素要求父元素有具体的宽高值，所谓具体的宽高值☞w h
+    //&::before{
+    //  content: "";
+    //  width: 1px;
+    //  height: 100%;
+    //  position: absolute;
+    //  border-left: 1px dashed @baseColor;
+    //  left:45%;
+    //  top:0;
+    //}
+    >li{
+      margin-bottom: 60px;
+      >a{
+          background-color: #ccc;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border: none;
+      }
+      >a:hover{
+        border: none;
+        background-color: @baseColor;
+      }
+      &.active{
+        a,a:hover,a:focus{
+          border: none;
+          background-color: @baseColor;
+        }
+      }
+      .glyphicon{
+          font-size: 30px;
+           color:white;
+          line-height: 40px;
+      }
+    }
+    >li:last-of-type{
+      margin-bottom: 0px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 992px){
+      >li{
+        margin: 20px 30px;
+      }
+    }
+    @media screen and(max-width:768px){
+      >li {
+        margin: 20px 0px;
+        width: 25%;
+      }
+    }
+  }
+}
+
+/*合作伙伴*/
+.wjs_partner{
+  background-color: #eee;
+  padding: 20px;
+  text-align: center;
+  h3{
+    width: 100%;
+    text-align: center;
+  }
+  ul{
+    list-style: none;
+    display: inline-block;
+    >li{
+      float: left;
+      font-size: 40px;
+      //margin-left: 20px;
+      .glyphicon {
+      color: #aaa;
+      }
+    }
+  }
+}

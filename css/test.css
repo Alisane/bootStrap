@@ -1,0 +1,42 @@
+/*才会编译，在.css文件中可见*/
+/*变量  @变量名：值*/
+a {
+  color: #e92322;
+}
+/*混入可以将一个定义好的样式引入到另一个样式中，类似于函数调用*/
+div {
+  width: 200px;
+  height: 200px;
+  /*默认10px*/
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+/*嵌套:实现选择器的继承，减少代码量，使代码结构更清晰*/
+.jd_header {
+  width: 100px;
+  height: 100px;
+  /*默认10px*/
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.jd_header > div {
+  width: 100%;
+}
+.jd_header > div::before {
+  content: "";
+}
+.jd_header > div a {
+  text-decoration: underline;
+}
+.jd_header > div a:hover {
+  text-decoration: none;
+}
+.jd_header > div > h3 {
+  width: 100%;
+  height: 100%;
+}
+.jd_header > div ul {
+  list-style: none;
+}
