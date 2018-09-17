@@ -49,7 +49,7 @@ div {
 }
 ```
 # iscroll.js
-When you visit this website with your mobile phone ,you may find a horizontal sliding navigation bar(横向滑动的导航条),it is difficult to use javascript by myself,but iscroll.js hlep me solved the problem.If you want to know more about it, please visited this url百度(http://www.360doc.com/content/14/0724/11/16276861_396699901.shtml)[百度](http://www.360doc.com/content/14/0724/11/16276861_396699901.shtml)
+When you visit this website with your mobile phone ,you may find a horizontal sliding navigation bar(横向滑动的导航条),it is difficult to use javascript by myself,but iscroll.js hlep me solved the problem.If you want to know more about it, please visited this url(http://www.360doc.com/content/14/0724/11/16276861_396699901.shtml)
 ```
 var myScroll = new IScroll(".tabs_parent",{
         scrollX:true,
