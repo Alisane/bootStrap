@@ -2,7 +2,7 @@
 The index.html is the main page of the website.This website called "微金所"，the bootstrap framework is mainly used for page layout.
 I also used less to implement page styles.You can use your computer or mobile phone to visit this website .
 ## Less
-I find use less made my code more concise and to made few mistakes.You can have a try.You must be love it.<br>  Here are some of the most common ones
+I find use less made my css code more concise and to made few mistakes.You can have a try.You must be love it.<br>  Here are some of the most common ones
 ```
 /**/才会编译，在.css文件中可见
 //不会编译，在.css文件中不可见
@@ -47,4 +47,12 @@ div {
     }
   }
 }
+```
+# iscroll.js
+When you visit this website with your mobile phone ,you may find a horizontal sliding navigation bar(横向滑动的导航条),it is difficult to use javascript by myself,but iscroll.js hlep me solved the problem.If you want to know more about it, please visited this url(http://www.360doc.com/content/14/0724/11/16276861_396699901.shtml)
+```
+var myScroll = new IScroll(".tabs_parent",{
+        scrollX:true,
+        scrollY:false
+    });
 ```
