@@ -2,8 +2,7 @@
 The index.html is the main page of the website.This website called "微金所"，the bootstrap framework is mainly used for page layout.
 I also used less to implement page styles.You can use your computer or mobile phone to visit this website .
 ## Less
-I find use less made my code more concise and to made few mistakes.You can have a try.You must be love it.  \<br>
-Here are some of the most common ones
+I find use less made my code more concise and to made few mistakes.You can have a try.You must be love it.  Here are some of the most common ones
 ```
 /**/才会编译，在.css文件中可见
 //不会编译，在.css文件中不可见
